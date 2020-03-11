@@ -1,0 +1,247 @@
+WindowManager:
+    MainScreen:
+        name: 'MainScreen'
+    SecondScreen:
+        name: 'SecondScreen'
+
+<MainScreen>:
+
+    yam_btn: yam_btn
+    equ_btn: equ_btn
+    mec_btn: mec_btn
+
+    FloatLayout:
+        Button:
+            id: equ_btn
+            text: root.switchsides('ניווט מכשירים')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.equ_select()
+            pos_hint: {"x": 0.2, "y": 0.8}
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
+            background_color: 1.0, 0.0, 0.0, 1.0
+            size_hint: 0.1, 0.1
+
+        Button:
+            id: yam_btn
+            text: root.switchsides('ימאות')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.yam_select()
+            pos_hint: {"x": 0.45, "y": 0.8}
+            size_hint: 0.1, 0.1
+        Button:
+            id: mec_btn
+            text: root.switchsides('מכונאות')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.mec_select()
+            pos_hint: {"x": 0.7, "y": 0.8}
+            size_hint: 0.1, 0.1
+
+        Button:
+            text: root.switchsides('נתחיל מבחן משמירה?')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.start_from_saving()
+            pos_hint: {"x": 0.3, "y": 0.55}
+            size_hint: 0.4, 0.2
+
+
+        Button:
+            text: root.switchsides('נתחיל מבחן חדש?')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.start_from_begin()
+            pos_hint: {"x": 0.3, "y": 0.25}
+            size_hint: 0.4, 0.2
+
+<SecondScreen>:
+
+    try_title: try_title
+    quest_title: quest_title
+    ans1: ans1
+    ans2: ans2
+    ans3: ans3
+    ans4: ans4
+
+    on_enter: root.enter()
+
+    FloatLayout:
+        Button:
+            id: prev_btn
+            text: root.switch_sides('שאלה קודמת')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.prev_question()
+            pos_hint: {"x": 0.05, "y": 0.9}
+            size_hint: 0.2, 0.05
+
+        Button:
+            id: skip_btn
+            text: root.switch_sides('דלג')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.skip_question()
+            pos_hint: {"x": 0.25, "y": 0.9}
+            size_hint: 0.2, 0.05
+
+        Button:
+            id: save_btn
+            text: root.switch_sides('שמור')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.save()
+            pos_hint: {"x": 0.55, "y": 0.9}
+            size_hint: 0.2, 0.05
+
+        Button:
+            id: status_btn
+            text: root.switch_sides('סטטוס')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.status()
+            pos_hint: {"x": 0.75, "y": 0.9}
+            size_hint: 0.2, 0.05
+
+        Button:
+            id: img_btn
+            text: root.switch_sides('תמונת שאלה')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.show_img_quest()
+            pos_hint: {"x": 0.4, "y": 0.85}
+            size_hint: 0.2, 0.05
+
+        Button:
+            id: help_btn
+            text: root.switch_sides('חומר עזר')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.show_help()
+            pos_hint: {"x": 0.6, "y": 0.85}
+            size_hint: 0.2, 0.05
+
+        Button:
+            id: full_btn
+            text: root.switch_sides('המבחן המלא')
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.show_full_test()
+            pos_hint: {"x": 0.2, "y": 0.85}
+            size_hint: 0.2, 0.05
+
+        GridLayout:
+            cols: 1
+            pos_hint: {"x": 0.0, "y": 0.75}
+            size_hint: 1, 0.1
+            Label:
+                id: try_title
+                font_name:"Fonts/VarelaRound-Regular"
+                text: "Try"
+            Label:
+                id: quest_title
+                font_name:"Fonts/VarelaRound-Regular"
+                text_size: self.width, None
+                halign: 'center'
+                valign: 'middle'
+                text: "Quest"
+
+        Button:
+            id: ans1
+            text: "A1"
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.answer1_clicked()
+            pos_hint: {"x": 0.1, "y": 0.6}
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
+            size_hint: 0.8, 0.1
+
+        Button:
+            id: ans2
+            text: "A2"
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.answer2_clicked()
+            pos_hint: {"x": 0.1, "y": 0.45}
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
+            size_hint: 0.8, 0.1
+
+        Button:
+            id: ans3
+            text: "A3"
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.answer3_clicked()
+            pos_hint: {"x": 0.1, "y": 0.3}
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
+            size_hint: 0.8, 0.1
+
+        Button:
+            id: ans4
+            text: "A4"
+            font_name:"Fonts/VarelaRound-Regular"
+            on_release: root.answer4_clicked()
+            pos_hint: {"x": 0.1, "y": 0.15}
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
+            size_hint: 0.8, 0.1
+
+<P>:
+    auto_dismiss: False
+    Button:
+        text: root.switch_sides("כן אני בטוח!")
+        font_name:"Fonts/VarelaRound-Regular"
+        on_release: root.agreed()
+        size_hint: 0.4, 0.2
+        pos_hint: {"x": 0.3, "y":0.4}
+
+<Help>:
+    help_img: help_img
+
+    auto_dismiss: False
+    Label:
+        id: help_title
+        font_name:"Fonts/VarelaRound-Regular"
+        text: root.switch_sides("לא זמין")
+        size_hint: 0.3, 0.3
+        pos_hint: {"x": 0.35, "y":0.5}
+    Image:
+        id: help_img
+        source: "Gen_Pages/h_yam1.png"
+        size_hint: 0.9, 0.7
+        pos_hint: {"x": 0.1, "y":0.2}
+    Button:
+        text: root.switch_sides("עמוד הבא")
+        font_name:"Fonts/VarelaRound-Regular"
+        on_release: root.next_page()
+        size_hint: 0.4, 0.1
+        pos_hint: {"x": 0.1, "y":0.1}
+    Button:
+        text: root.switch_sides("עמוד קודם")
+        font_name:"Fonts/VarelaRound-Regular"
+        on_release: root.prev_page()
+        size_hint: 0.4, 0.1
+        pos_hint: {"x": 0.5, "y":0.1}
+
+<Full>:
+    full_img: full_img
+
+    auto_dismiss: False
+    Label:
+        id: full_title
+        font_name:"Fonts/VarelaRound-Regular"
+        text: root.switch_sides("לא זמין")
+        size_hint: 0.3, 0.3
+        pos_hint: {"x": 0.35, "y":0.5}
+    Image:
+        id: full_img
+        source: ""
+        size_hint: 0.9, 0.7
+        pos_hint: {"x": 0.1, "y":0.2}
+    Button:
+        text: root.switch_sides("עמוד הבא")
+        font_name:"Fonts/VarelaRound-Regular"
+        on_release: root.next_page()
+        size_hint: 0.4, 0.1
+        pos_hint: {"x": 0.1, "y":0.1}
+    Button:
+        text: root.switch_sides("עמוד קודם")
+        font_name:"Fonts/VarelaRound-Regular"
+        on_release: root.prev_page()
+        size_hint: 0.4, 0.1
+        pos_hint: {"x": 0.5, "y":0.1}

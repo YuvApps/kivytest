@@ -1,0 +1,3 @@
+title=Yachts
+author=Yuval Aharoni
+orientation=landscape
